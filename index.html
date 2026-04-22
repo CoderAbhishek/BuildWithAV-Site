@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildWithAV — AI-Powered Business Tools & Consulting</title>
+<meta name="description" content="Abhi builds AI-powered tools, automations, and dashboards for founders and SMEs who need a full analytics and tech team without hiring one.">
+<style>
+  :root {
+    --bg: #08090E;
+    --surface: #0F1117;
+    --surface2: #161820;
+    --border: #1E2030;
+    --border2: #252840;
+    --text: #E8EAF0;
+    --text-muted: #7880A0;
+    --text-dim: #3A4060;
+    --blue: #4F8EF7;
+    --blue-bg: #0D1A35;
+    --blue-border: #1A3060;
+    --gold: #F0A843;
+    --gold-bg: #1A1200;
+    --gold-border: #2E2000;
+    --green: #3ECF8E;
+    --green-bg: #061A10;
+    --green-border: #0D3520;
+    --purple: #9D7CF4;
+    --coral: #F4706A;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(8, 9, 14, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: 0.3px;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: #6AA0FA;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(79, 142, 247, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 40px 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 142, 247, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--blue-bg);
+    border: 1px solid var(--blue-border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--blue);
+    margin-bottom: 28px;
+    letter-spacing: 0.2px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 22px;
+    max-width: 780px;
+  }
+
+  .hero h1 .accent-blue { color: var(--blue); }
+  .hero h1 .accent-gold { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .hero-ctas .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-val {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-val span { color: var(--blue); }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ── SECTION SHARED ── */
+  section {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-tag.blue { color: var(--blue); }
+  .section-tag.gold { color: var(--gold); }
+  .section-tag.green { color: var(--green); }
+
+  h2 {
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 520px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+
+  .service-card.blue {
+    border-color: var(--blue-border);
+    background: linear-gradient(135deg, var(--blue-bg) 0%, rgba(13, 26, 53, 0.6) 100%);
+  }
+
+  .service-card.gold {
+    border-color: var(--gold-border);
+    background: linear-gradient(135deg, var(--gold-bg) 0%, rgba(26, 18, 0, 0.6) 100%);
+  }
+
+  .service-card.green {
+    border-color: var(--green-border);
+    background: linear-gradient(135deg, var(--green-bg) 0%, rgba(6, 26, 16, 0.6) 100%);
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .service-card.blue .service-icon { background: rgba(79, 142, 247, 0.12); }
+  .service-card.gold .service-icon { background: rgba(240, 168, 67, 0.12); }
+  .service-card.green .service-icon { background: rgba(62, 207, 142, 0.12); }
+
+  .service-stream {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .service-card.blue .service-stream { color: var(--blue); }
+  .service-card.gold .service-stream { color: var(--gold); }
+  .service-card.green .service-stream { color: var(--green); }
+
+  .service-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .service-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-items li {
+    font-size: 12px;
+    color: #8898C0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .service-items li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+  }
+
+  .service-card.blue .service-items li::before { color: var(--blue); }
+  .service-card.gold .service-items li::before { color: var(--gold); }
+  .service-card.green .service-items li::before { color: var(--green); }
+
+  /* ── WHO IS THIS FOR ── */
+  .icp-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px;
+  }
+
+  .icp-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .icp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+  }
+
+  .icp-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: border-color 0.15s;
+  }
+
+  .icp-card:hover { border-color: var(--border2); }
+
+  .icp-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .icp-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .icp-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── ADVANTAGE ── */
+  .advantage-box {
+    background: var(--blue-bg);
+    border: 1px solid var(--blue-border);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin-top: 48px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .advantage-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .advantage-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .advantage-text {
+    font-size: 15px;
+    color: #A8C0F0;
+    line-height: 1.75;
+  }
+
+  .advantage-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(79, 142, 247, 0.12);
+    border: 1px solid var(--blue-border);
+    color: var(--blue);
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    text-align: center;
+    padding: 100px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons .btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .cta-note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ── DIVIDER ── */
+  .full-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 120px 20px 80px; }
+    section { padding: 60px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .icp-section { padding: 60px 20px; }
+    .icp-grid { grid-template-columns: 1fr; }
+    .advantage-box { flex-direction: column; gap: 16px; padding: 24px; }
+    .cta-section { padding: 70px 20px; }
+    footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    .hero-stats { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">BuildWithAV</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="mailto:hello@buildwithav.com">Contact</a></li>
+  </ul>
+  <a href="mailto:hello@buildwithav.com" class="btn btn-primary">Work with me →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">
+    <div class="badge-dot"></div>
+    Available for new projects · April 2026
+  </div>
+
+  <h1>
+    AI-powered tools &amp; consulting<br>
+    for businesses that need<br>
+    <span class="accent-blue">results, not a full team.</span>
+  </h1>
+
+  <p class="hero-sub">
+    I build automations, dashboards, and AI tools that do the work of a 5-person team — so you can move faster without hiring more people.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="mailto:hello@buildwithav.com" class="btn btn-primary">Book a discovery call →</a>
+    <a href="#products" class="btn btn-outline">See what I've built</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-val"><span>3</span> streams</div>
+      <div class="stat-label">Services · Products · SaaS</div>
+    </div>
+    <div>
+      <div class="stat-val"><span>120</span>+ tools</div>
+      <div class="stat-label">In the stack I work with</div>
+    </div>
+    <div>
+      <div class="stat-val"><span>BA</span> + Dev</div>
+      <div class="stat-label">Analyst, consultant & builder</div>
+    </div>
+    <div>
+      <div class="stat-val">India <span>→</span> Global</div>
+      <div class="stat-label">Working with SMEs worldwide</div>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag blue">What I Do</div>
+  <h2>Three ways to work together</h2>
+  <p class="section-sub">Whether you need immediate consulting, a ready-made tool, or a subscription product — there's a path that fits.</p>
+
+  <div class="services-grid">
+
+    <div class="service-card blue">
+      <div class="service-icon">📊</div>
+      <div class="service-stream">Stream 01</div>
+      <div class="service-title">Freelance Consulting</div>
+      <div class="service-desc">Hands-on BA and analytics consulting. You get a senior partner who can also build what they recommend.</div>
+      <ul class="service-items">
+        <li>Business analysis &amp; requirements</li>
+        <li>Power BI dashboards &amp; reporting</li>
+        <li>Automation setup (n8n, Make)</li>
+        <li>AI tool implementation for your team</li>
+        <li>Strategy &amp; process documentation</li>
+      </ul>
+    </div>
+
+    <div class="service-card gold">
+      <div class="service-icon">📦</div>
+      <div class="service-stream">Stream 02</div>
+      <div class="service-title">Digital Products</div>
+      <div class="service-desc">Ready-to-use templates, trackers, and tools built around the problems I solve repeatedly for clients.</div>
+      <ul class="service-items">
+        <li>n8n &amp; Make automation bundles</li>
+        <li>Excel &amp; Power BI templates</li>
+        <li>Notion CRM &amp; tracker templates</li>
+        <li>Pre-built HTML AI tools</li>
+        <li>BA documentation generators</li>
+      </ul>
+    </div>
+
+    <div class="service-card green">
+      <div class="service-icon">⚡</div>
+      <div class="service-stream">Stream 03</div>
+      <div class="service-title">AI SaaS Tools</div>
+      <div class="service-desc">Subscription tools built on Claude &amp; Gemini APIs that solve one specific business problem extremely well.</div>
+      <ul class="service-items">
+        <li>Company intelligence tools</li>
+        <li>Proposal &amp; doc generators</li>
+        <li>LinkedIn outreach personalizers</li>
+        <li>Pre-call research tools</li>
+        <li>$9–$49/month · no team required</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- WHO IS THIS FOR -->
+<div class="icp-section" id="who">
+  <div class="icp-inner">
+    <div class="section-tag gold">Who This Is For</div>
+    <h2>Built for operators who move fast</h2>
+    <p class="section-sub" style="margin-bottom:0">You don't have a full data team. You don't want to wait 6 months for an agency. You need someone who can think and build.</p>
+
+    <div class="icp-grid">
+      <div class="icp-card">
+        <div class="icp-icon">🏗️</div>
+        <div>
+          <div class="icp-title">Founders &amp; COOs at SMEs (10–100 people)</div>
+          <div class="icp-desc">Need dashboards, automations, and workflows — without hiring a full tech team. Want a trusted consultant who delivers, not just advises.</div>
+        </div>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">📈</div>
+        <div>
+          <div class="icp-title">Strategy &amp; Ops Leaders</div>
+          <div class="icp-desc">Need reporting infrastructure, process documentation, or a custom AI tool to give their team leverage. BA background means I speak your language.</div>
+        </div>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🏥</div>
+        <div>
+          <div class="icp-title">Healthcare &amp; BFSI Companies</div>
+          <div class="icp-desc">Need BA documentation (BRD, FRD, user stories) and data analytics tailored to regulated industries. Process-first, compliance-aware.</div>
+        </div>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🚀</div>
+        <div>
+          <div class="icp-title">Startup Founders</div>
+          <div class="icp-desc">Need a Power BI dashboard or custom AI tool but aren't ready to hire a full data team. Get the output of a 3-person team for a fraction of the cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advantage-box">
+      <div class="advantage-icon">🎯</div>
+      <div>
+        <div class="advantage-label">The Unfair Advantage</div>
+        <div class="advantage-text">
+          Most consultants are one thing: analyst, or developer, or strategist. I'm all four in parallel — which means I can build the tool, consult on it, make the case study, and teach your team to use it. That four-in-one positioning is extremely hard to replicate.
+        </div>
+        <div class="advantage-pills">
+          <span class="pill">BA &amp; Requirements</span>
+          <span class="pill">Data Analytics</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Automation</span>
+          <span class="pill">Python</span>
+          <span class="pill">AI Tool Building</span>
+          <span class="pill">Claude API</span>
+          <span class="pill">n8n / Make</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section id="products">
+  <div class="section-tag green">Products</div>
+  <h2>Tools I've built — available now</h2>
+  <p class="section-sub">Practical tools born from real consulting work. Each one solves a specific problem in under 5 minutes of setup.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:var(--blue-bg);border:1px solid var(--blue-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🔍</div>
+        <div>
+          <div style="font-size:14px;font-weight:700">Pre-Call Intel Tool</div>
+          <div style="font-size:11px;color:var(--blue)">Available now · $19</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-muted);line-height:1.65">Enter a company name. Get a full intelligence brief in 30 seconds — company background, pain points, talking points, and a personalized opener. Built on Claude API.</div>
+      <a href="mailto:hello@buildwithav.com?subject=Pre-Call Intel Tool" class="btn btn-outline" style="width:fit-content;font-size:12px">Get access →</a>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📋</div>
+        <div>
+          <div style="font-size:14px;font-weight:700">n8n Automation Bundle</div>
+          <div style="font-size:11px;color:var(--gold)">Coming soon · $49–$99</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-muted);line-height:1.65">10 ready-to-use n8n workflow templates for SMEs — lead enrichment, email sequences, data syncing, and AI-powered reporting. Install in minutes.</div>
+      <a href="mailto:hello@buildwithav.com?subject=n8n Bundle Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:var(--green-bg);border:1px solid var(--green-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📊</div>
+        <div>
+          <div style="font-size:14px;font-weight:700">Power BI Dashboard Templates</div>
+          <div style="font-size:11px;color:var(--green)">Coming soon · $79–$149</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-muted);line-height:1.65">Industry-specific PBIX templates for operations, sales, and finance teams. Plug in your data source and go live in an afternoon.</div>
+      <a href="mailto:hello@buildwithav.com?subject=Power BI Templates" class="btn btn-outline" style="width:fit-content;font-size:12px">Notify me →</a>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:rgba(157,124,244,0.1);border:1px solid rgba(157,124,244,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📝</div>
+        <div>
+          <div style="font-size:14px;font-weight:700">BA Requirements Generator</div>
+          <div style="font-size:11px;color:var(--purple)">Coming soon · $9/mo</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-muted);line-height:1.65">Input a feature or problem. Get a full BRD, FRD, and user story set automatically. For product managers, BAs, and consultants.</div>
+      <a href="mailto:hello@buildwithav.com?subject=BA Generator Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- CTA -->
+<div style="background:linear-gradient(135deg, #0B0F1A 0%, #0D1825 50%, #0B0F1A 100%);border-bottom:1px solid var(--border)">
+  <div class="cta-section">
+    <div class="section-tag blue" style="margin-bottom:16px">Ready to start?</div>
+    <h2>Let's build something together</h2>
+    <p>Whether you need a dashboard, an automation, or a custom AI tool — send me a message and I'll get back to you within 24 hours.</p>
+    <div class="cta-buttons">
+      <a href="mailto:hello@buildwithav.com" class="btn btn-primary">Email me →</a>
+      <a href="https://www.instagram.com/buildwithav_official" target="_blank" class="btn btn-outline">Follow on Instagram</a>
+    </div>
+    <div class="cta-note">hello@buildwithav.com · Response within 24 hours</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">BuildWithAV</a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="https://www.instagram.com/buildwithav_official" target="_blank">Instagram</a></li>
+    <li><a href="mailto:hello@buildwithav.com">hello@buildwithav.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 BuildWithAV · Abhishek Vinod</div>
+</footer>
+
+</body>
+</html>
