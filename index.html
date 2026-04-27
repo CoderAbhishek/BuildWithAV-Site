@@ -768,15 +768,26 @@
     font-size: 14px;
   }
 
+  /* ── PRODUCTS GRID ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
     nav { padding: 0 20px; }
+    nav > .btn-primary { display: none; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .mobile-menu { display: block; }
     .hero { padding: 120px 20px 60px; }
+    .hero h1 { font-size: 28px; line-height: 1.22; }
+    h1 br { display: none; }
     section { padding: 60px 20px; }
     .services-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
     .icp-section { padding: 60px 20px; }
     .icp-grid { grid-template-columns: 1fr; }
     .advantage-box { flex-direction: column; gap: 16px; padding: 24px; }
@@ -985,7 +996,7 @@
   <h2>Tools I've built — available now</h2>
   <p class="section-sub">Practical tools born from real consulting work. Each one solves a specific problem in under 5 minutes of setup.</p>
 
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+  <div class="products-grid">
 
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px">
       <div style="display:flex;align-items:center;gap:10px">
