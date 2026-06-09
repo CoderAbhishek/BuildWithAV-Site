@@ -498,6 +498,26 @@
     margin-top: 4px;
   }
 
+  /* ── DEMOS CONTEXT NOTE ── */
+  .demos-context {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* ── DEMO CARD ACTIONS ── */
+  .demo-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .demo-actions .btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
   /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
@@ -583,6 +603,7 @@
 
   <!-- DEMOS GRID -->
   <div class="demos-section">
+    <p class="demos-context reveal">Built three different ways — vibe coded, workflow automation, and from scratch. Each demo below represents a different approach to building with AI.</p>
     <div class="demos-grid">
 
       <!-- CARD 1: Daily Intelligence Digest -->
@@ -612,18 +633,28 @@
         </div>
       </div>
 
-      <!-- PLACEHOLDER CARD — remove when next real demo is ready -->
-      <div class="demo-card reveal delay-1" style="border-style:dashed;opacity:0.45;pointer-events:none;">
+      <!-- CARD 2: PDF Chat App -->
+      <div class="demo-card reveal delay-1">
         <div class="demo-card-header">
-          <div class="demo-icon" style="background:var(--surface2);border-color:var(--border2);">⚙️</div>
+          <div class="demo-icon">📄</div>
           <div class="demo-meta">
-            <div class="demo-title" style="color:var(--text-muted);">More demos coming</div>
-            <div class="demo-problem">New workflows added regularly. Check back or book a call to discuss a custom build.</div>
+            <div class="demo-title">PDF Chat App</div>
+            <div class="demo-problem">Need to extract insights from a long PDF without reading the whole thing? Upload any document — report, contract, research paper — and ask questions in plain English. Answers are grounded strictly in the document. No hallucination.</div>
           </div>
         </div>
-        <div class="loom-placeholder"></div>
+
+        <div class="demo-actions">
+          <a href="https://pdf-chat-buildwithav.streamlit.app" target="_blank" rel="noopener" class="btn btn-primary">Try it live →</a>
+          <a href="https://github.com/CoderAbhishek/pdf-chat" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
+        </div>
+
         <div class="demo-tags">
-          <span class="tag" style="opacity:0.5;">Coming soon</span>
+          <span class="tag">Python</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Groq API</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">RAG</span>
         </div>
       </div>
 
