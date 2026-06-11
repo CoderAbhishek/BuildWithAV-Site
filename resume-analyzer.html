@@ -14,22 +14,22 @@
 </script>
 
 <!-- ── SEO ── -->
-<title>Products — AI Tools &amp; Templates by BuildWithAV | Abhishek Vinod</title>
-<meta name="description" content="AI-powered tools from BuildWithAV — Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack, and more. Built for SMEs, consultants, and job seekers.">
-<link rel="canonical" href="https://buildwithav.com/products">
+<title>Resume vs JD Gap Analyzer — Know Your Match Score Before You Apply | BuildWithAV</title>
+<meta name="description" content="AI resume analyzer that compares your resume against any job description — ATS score, skill gap detection, and AI recommendations to improve your job description match. Free demo available.">
+<link rel="canonical" href="https://buildwithav.com/resume-analyzer">
 <link rel="icon" type="image/png" href="/favicon.png">
 
 <!-- ── Open Graph ── -->
-<meta property="og:title" content="Products — AI Tools &amp; Templates | BuildWithAV">
-<meta property="og:description" content="AI-powered tools from BuildWithAV — Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack, and more.">
-<meta property="og:url" content="https://buildwithav.com/products">
+<meta property="og:title" content="Resume vs JD Gap Analyzer — Know Your Match Score Before You Apply | BuildWithAV">
+<meta property="og:description" content="AI-powered resume analyzer tool — upload your resume and a job description, get an instant ATS match score, skill gap analysis, and AI recommendations.">
+<meta property="og:url" content="https://buildwithav.com/resume-analyzer">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://buildwithav.com/og-image.png">
 
 <!-- ── Twitter Card ── -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Products — AI Tools &amp; Templates | BuildWithAV">
-<meta name="twitter:description" content="AI-powered tools from BuildWithAV. Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack and more.">
+<meta name="twitter:title" content="Resume vs JD Gap Analyzer | BuildWithAV">
+<meta name="twitter:description" content="Upload your resume and job description. Get a match score, skill gap report, and AI recommendations — instantly.">
 <meta name="twitter:image" content="https://buildwithav.com/og-image.png">
 
 <style>
@@ -40,7 +40,8 @@
     --blue: #4F8EF7; --blue-bg: #0D1A35; --blue-border: #1A3060;
     --gold: #F0A843; --gold-bg: #1A1200; --gold-border: #2E2000;
     --green: #3ECF8E; --green-bg: #061A10; --green-border: #0D3520;
-    --purple: #9D7CF4; --coral: #F4706A; --coral-bg: #1A0808; --coral-border: #3A1010; --radius: 10px; --radius-lg: 16px;
+    --purple: #9D7CF4; --coral: #F4706A; --coral-bg: #1A0808; --coral-border: #3A1010;
+    --radius: 10px; --radius-lg: 16px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -80,47 +81,173 @@
   .mobile-menu .mobile-cta .btn { width: 100%; justify-content: center; padding: 13px; font-size: 14px; }
 
   .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-  .section-tag.blue { color: var(--blue); }
-  .section-tag.gold { color: var(--gold); }
+  .section-tag.blue  { color: var(--blue); }
+  .section-tag.coral { color: var(--coral); }
   .section-tag.green { color: var(--green); }
   .full-divider { height: 1px; background: var(--border); margin: 0; }
 
-  /* ── PAGE HEADER ── */
-  .page-header { padding: 120px 40px 60px; max-width: 1100px; margin: 0 auto; }
-  .page-header h1 { font-size: clamp(32px,4.5vw,52px); font-weight: 800; line-height: 1.15; letter-spacing: -0.4px; margin-bottom: 14px; }
-  .page-header .sub { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.8; }
+  /* ── HERO ── */
+  .hero {
+    padding: 120px 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-  /* ── PRODUCTS GRID ── */
-  .products-section { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
-  .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    margin-bottom: 16px;
+  }
 
-  /* ── PRODUCT CARD ── */
-  .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s, transform 0.2s; }
-  .product-card:hover { border-color: var(--border2); transform: translateY(-2px); }
-  .product-card.live { border-color: var(--blue-border); background: linear-gradient(135deg, var(--blue-bg) 0%, rgba(13,26,53,0.5) 100%); }
+  .hero .sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
 
-  .product-card-header { display: flex; align-items: center; gap: 12px; }
-  .product-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .product-icon.blue   { background: var(--blue-bg); border: 1px solid var(--blue-border); }
-  .product-icon.gold   { background: var(--gold-bg); border: 1px solid var(--gold-border); }
-  .product-icon.purple { background: rgba(157,124,244,0.1); border: 1px solid rgba(157,124,244,0.2); }
-  .product-icon.green  { background: var(--green-bg); border: 1px solid var(--green-border); }
-  .product-icon.coral  { background: var(--coral-bg); border: 1px solid var(--coral-border); }
-  .product-status.coral { color: var(--coral); }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
 
-  .product-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-  .product-status { font-size: 11px; font-weight: 600; }
-  .product-status.blue   { color: var(--blue); }
-  .product-status.gold   { color: var(--gold); }
-  .product-status.purple { color: var(--purple); }
-  .product-status.green  { color: var(--green); }
+  .hero-actions .btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
 
-  .product-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+  /* ── DEMO EMBED ── */
+  .demo-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  .demo-caption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    line-height: 1.6;
+  }
+
+  /* ── FEATURES ── */
+  .features-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  .features-section h2 {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.2px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .feature-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+
+  .feature-text span {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ── WHAT YOU GET ── */
+  .wyg-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  .wyg-section h2 {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .wyg-section .wyg-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .wyg-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .wyg-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wyg-item:last-child { border-bottom: none; }
+
+  .wyg-check {
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .wyg-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .wyg-item p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
 
   /* ── CTA ── */
   .cta-wrap { background: linear-gradient(135deg, #0B0F1A 0%, #0D1825 50%, #0B0F1A 100%); border-top: 1px solid var(--border); }
   .cta-inner { max-width: 660px; margin: 0 auto; padding: 90px 40px; text-align: center; }
-  .cta-inner h2 { font-size: clamp(24px,3.5vw,36px); font-weight: 700; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
+  .cta-inner h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
   .cta-inner p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
   .cta-inner .btn { padding: 14px 32px; font-size: 15px; }
   .cta-inner .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -144,10 +271,13 @@
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .mobile-menu { display: block; }
-    .page-header { padding: 100px 20px 48px; }
-    .page-header h1 { font-size: 28px; }
-    .products-section { padding: 0 20px 60px; }
-    .products-grid { grid-template-columns: 1fr; }
+
+    .hero { padding: 100px 20px 48px; }
+    .hero h1 { font-size: 26px; }
+    .demo-section { padding: 0 20px 48px; }
+    .features-section { padding: 0 20px 48px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .wyg-section { padding: 0 20px 48px; }
     .cta-inner { padding: 60px 20px; }
     footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
     .footer-copy { text-align: left; }
@@ -188,87 +318,113 @@
 
 <main>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <div class="section-tag green reveal">Products</div>
-    <h1 class="reveal delay-1">The BuildWithAV tool suite</h1>
-    <p class="sub reveal delay-2">Practical AI tools born from real consulting work — one live now, three in active development. Built to solve specific problems fast.</p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="section-tag coral reveal">AI Resume Tool</div>
+    <h1 class="reveal delay-1">Resume vs JD Gap Analyzer — Know Your Match Score Before You Apply</h1>
+    <p class="sub reveal delay-2">AI-powered tool that compares your resume against any job description and tells you exactly what's missing.</p>
+    <div class="hero-actions reveal delay-2">
+      <a href="https://huggingface.co/spaces/BuildWithAV/resume-analyzer" target="_blank" rel="noopener" class="btn btn-primary">Try the free demo →</a>
+      <a href="mailto:hello@buildwithav.com?subject=Resume vs JD Gap Analyzer - Notify Me" class="btn btn-outline cta-buy-button" id="cta-buy-button">Notify me when available</a>
+    </div>
   </div>
 
-  <!-- PRODUCTS GRID -->
-  <div class="products-section">
-    <div class="products-grid">
+  <!-- LIVE DEMO EMBED -->
+  <div class="demo-section">
+    <p class="demo-caption reveal">🔒 This is a live demo with two sample job descriptions — upload your own resume and JD in the full version.</p>
+    <iframe
+      src="https://buildwithav-resume-analyzer.hf.space"
+      frameborder="0"
+      class="reveal"
+      style="width:100%;aspect-ratio:16/9;border-radius:8px;display:block;">
+    </iframe>
+  </div>
 
-      <!-- Pre-Call Intel Tool -->
-      <div class="product-card live reveal">
-        <div class="product-card-header">
-          <div class="product-icon blue">🔍</div>
-          <div>
-            <div class="product-name">Pre-Call Intel Tool</div>
-            <div class="product-status blue">Available now · $9</div>
-          </div>
-        </div>
-        <p class="product-desc">Enter a company name. Get a full intelligence brief in 30 seconds — company background, pain points, talking points, and a personalized opener. Built on Claude API.</p>
-        <a href="https://abhishekvinod1.gumroad.com/l/precallintel" target="_blank" rel="noopener" class="btn btn-outline" style="width:fit-content;font-size:12px">Get access →</a>
-      </div>
+  <!-- FEATURES -->
+  <div class="features-section">
+    <h2 class="reveal">What it does</h2>
+    <div class="features-grid">
 
-      <!-- Notion Workspace Pack -->
-      <div class="product-card reveal delay-1">
-        <div class="product-card-header">
-          <div class="product-icon gold">📦</div>
-          <div>
-            <div class="product-name">Notion Workspace Pack</div>
-            <div class="product-status gold">Building now · $19–$99</div>
-          </div>
-        </div>
-        <p class="product-desc">Three ready-to-use Notion workspace templates for freelancers and consultants — Starter ($19), Pro ($39), Elite ($59). Plus a Custom AI tier ($99) that builds a personalised workspace inside your Notion account using your real clients, projects, and goals.</p>
-        <a href="mailto:hello@buildwithav.com?subject=Notion Workspace Pack Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
-      </div>
-
-      <!-- BRD Generator -->
-      <div class="product-card reveal">
-        <div class="product-card-header">
-          <div class="product-icon purple">📄</div>
-          <div>
-            <div class="product-name">BRD Generator</div>
-            <div class="product-status purple">Building now · Free trial – $99</div>
-          </div>
-        </div>
-        <p class="product-desc">Describe your project in plain English. A multi-agent AI pipeline interviews you, researches your domain, and produces a professional Business Requirements Document — in consulting or agile style. For BAs, PMs, and consultants.</p>
-        <a href="mailto:hello@buildwithav.com?subject=BRD Generator Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
-      </div>
-
-      <!-- Company X-Ray -->
-      <div class="product-card reveal delay-1">
-        <div class="product-card-header">
-          <div class="product-icon green">🔬</div>
-          <div>
-            <div class="product-name">Company X-Ray</div>
-            <div class="product-status green">Planned · Coming 2026</div>
-          </div>
-        </div>
-        <p class="product-desc">Deep company intelligence for consultants and sales teams. Enter a company name, get a full strategic profile — funding history, tech stack, hiring signals, competitive landscape, and personalized outreach angles.</p>
-        <a href="mailto:hello@buildwithav.com?subject=Company X-Ray Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
-      </div>
-
-      <!-- Resume vs JD Gap Analyzer -->
-      <div class="product-card reveal">
-        <div class="product-card-header">
-          <div class="product-icon coral">🎯</div>
-          <div>
-            <a href="/resume-analyzer" style="color:inherit;text-decoration:none;">
-              <div class="product-name">Resume vs JD Gap Analyzer</div>
-            </a>
-            <div class="product-status coral">Demo live · Full version coming soon</div>
-          </div>
-        </div>
-        <p class="product-desc">Score your resume against any job description in seconds — match score, matching skills, missing skills, and AI-generated recommendations to close the gap. Try the free demo now, or get the full source code to deploy under your own name with a free Groq API key.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://huggingface.co/spaces/BuildWithAV/resume-analyzer" target="_blank" rel="noopener" class="btn btn-outline" style="width:fit-content;font-size:12px">Try the demo →</a>
-          <a href="mailto:hello@buildwithav.com?subject=Resume vs JD Gap Analyzer Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Notify me when available →</a>
+      <div class="feature-item reveal">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-text">
+          <strong>Match score 0–100</strong>
+          <span>Color-coded result — green for strong match, orange for partial, red for weak. Know before you apply.</span>
         </div>
       </div>
 
+      <div class="feature-item reveal delay-1">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <strong>Matching skills</strong>
+          <span>See exactly which skills and keywords from the JD you already have on your resume.</span>
+        </div>
+      </div>
+
+      <div class="feature-item reveal">
+        <div class="feature-icon">⚠️</div>
+        <div class="feature-text">
+          <strong>Missing skills</strong>
+          <span>Surface the gaps before a recruiter does. Know what to add, highlight, or learn.</span>
+        </div>
+      </div>
+
+      <div class="feature-item reveal delay-1">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-text">
+          <strong>AI-generated recommendations</strong>
+          <span>Not just a gap list — actionable suggestions to close each gap and improve your application.</span>
+        </div>
+      </div>
+
+      <div class="feature-item reveal">
+        <div class="feature-icon">📄</div>
+        <div class="feature-text">
+          <strong>PDF, Word &amp; plain text</strong>
+          <span>Upload your resume and JD in any format — PDF, .docx, or .txt. No conversion needed.</span>
+        </div>
+      </div>
+
+      <div class="feature-item reveal delay-1">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-text">
+          <strong>Powered by Groq LLM</strong>
+          <span>Groq's free tier gives you 360K tokens/day — enough to analyze dozens of applications at zero cost.</span>
+        </div>
+      </div>
+
+      <div class="feature-item reveal" style="grid-column: 1 / -1;">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-text">
+          <strong>Deploy your own copy in under 30 minutes</strong>
+          <span>Step-by-step guide for HuggingFace Spaces and Streamlit Community Cloud included. No paid infrastructure needed.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="wyg-section">
+    <h2 class="reveal">What you get with the full version</h2>
+    <p class="wyg-sub reveal">Complete source code package — everything you need to deploy under your own brand.</p>
+    <div class="wyg-list reveal">
+      <div class="wyg-item">
+        <div class="wyg-check">✓</div>
+        <p><strong>Complete Python source code</strong> — LangChain + Groq + pdfplumber + python-docx + Gradio. Clean, commented, ready to run.</p>
+      </div>
+      <div class="wyg-item">
+        <div class="wyg-check">✓</div>
+        <p><strong>Step-by-step setup and deploy guide</strong> — from zero to live in under 30 minutes, even if you've never deployed a Python app before.</p>
+      </div>
+      <div class="wyg-item">
+        <div class="wyg-check">✓</div>
+        <p><strong>Free Groq API key instructions</strong> — Groq's free tier covers 360K tokens/day. No paid API key required to run this tool.</p>
+      </div>
+      <div class="wyg-item">
+        <div class="wyg-check">✓</div>
+        <p><strong>Dual deployment guide</strong> — detailed walkthrough for both Streamlit Community Cloud and HuggingFace Spaces. Pick your platform.</p>
+      </div>
     </div>
   </div>
 
@@ -279,12 +435,12 @@
 <!-- CTA -->
 <div class="cta-wrap">
   <div class="cta-inner reveal">
-    <div class="section-tag blue" style="margin-bottom:14px">Need Something Custom?</div>
-    <h2>Don't see what you need?</h2>
-    <p>I also build custom tools and automations for specific business problems. Book a call and let's figure out what would work for you.</p>
+    <div class="section-tag coral" style="margin-bottom:14px">Full Version Coming Soon</div>
+    <h2>Get notified when the full version drops</h2>
+    <p>Pricing TBD. Drop your email and you'll be first to know — plus get early access pricing.</p>
     <div class="cta-row">
-      <a href="https://calendly.com/v-abhi04/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a free call →</a>
-      <a href="/contact" class="btn btn-outline">Send a message</a>
+      <a href="mailto:hello@buildwithav.com?subject=Resume vs JD Gap Analyzer - Notify Me" class="btn btn-primary cta-buy-button" id="cta-buy-button-footer">Notify me when available →</a>
+      <a href="https://huggingface.co/spaces/BuildWithAV/resume-analyzer" target="_blank" rel="noopener" class="btn btn-outline">Try the free demo →</a>
     </div>
   </div>
 </div>

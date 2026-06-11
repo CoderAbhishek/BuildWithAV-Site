@@ -310,6 +310,10 @@
     gap: 20px;
   }
 
+  .demo-card.wide {
+    grid-column: 1 / -1;
+  }
+
   /* ── DEMO CARD ── */
   .demo-card {
     background: var(--surface);
@@ -671,6 +675,39 @@
         </div>
 
         <div class="demo-features">Local embeddings &nbsp;·&nbsp; Semantic search &nbsp;·&nbsp; Zero hallucination &nbsp;·&nbsp; Tested on 139-page financial reports</div>
+      </div>
+
+      <!-- CARD 3: Resume vs JD Gap Analyzer -->
+      <div class="demo-card wide reveal delay-2">
+        <div class="demo-card-header">
+          <div class="demo-icon">🎯</div>
+          <div class="demo-meta">
+            <div class="demo-title"><a href="/resume-analyzer" style="color:inherit;text-decoration:none;">Resume vs JD Gap Analyzer</a></div>
+            <div class="demo-problem">Applying to jobs and not sure why you're not getting callbacks? Upload your resume and a job description and get an instant match score, see exactly which skills you have and which are missing, and get specific recommendations to close the gap.</div>
+          </div>
+        </div>
+
+        <iframe
+          src="https://buildwithav-resume-analyzer.hf.space"
+          frameborder="0"
+          style="width:100%;aspect-ratio:16/9;border-radius:8px;display:block;">
+        </iframe>
+
+        <div class="demo-actions">
+          <a href="https://huggingface.co/spaces/BuildWithAV/resume-analyzer" target="_blank" rel="noopener" class="btn btn-primary">Try the demo →</a>
+          <a href="/resume-analyzer" class="btn btn-outline">Full product page</a>
+        </div>
+
+        <div class="demo-tags">
+          <span class="tag">Python</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Groq API</span>
+          <span class="tag">pdfplumber</span>
+          <span class="tag">Gradio</span>
+          <span class="tag">NLP</span>
+        </div>
+
+        <div class="demo-features">Match score 0–100 · Skill gap detection · AI-powered recommendations · PDF/Word/text support</div>
       </div>
 
     </div>
