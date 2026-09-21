@@ -14,22 +14,22 @@
 </script>
 
 <!-- ── SEO ── -->
-<title>Products — AI Tools &amp; Templates by BuildWithAV | Abhishek Vinod</title>
-<meta name="description" content="AI-powered tools from BuildWithAV — Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack, and more. Built for SMEs, consultants, and job seekers.">
+<title>Products — Coming Soon | BuildWithAV | Abhishek Vinod</title>
+<meta name="description" content="BuildWithAV products are coming soon. Right now the focus is on shipping live AI projects — see working demos, or book a free call to talk about what you need.">
 <link rel="canonical" href="https://buildwithav.com/products">
 <link rel="icon" type="image/png" href="/favicon.png">
 
 <!-- ── Open Graph ── -->
-<meta property="og:title" content="Products — AI Tools &amp; Templates | BuildWithAV">
-<meta property="og:description" content="AI-powered tools from BuildWithAV — Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack, and more.">
+<meta property="og:title" content="Products — Coming Soon | BuildWithAV">
+<meta property="og:description" content="Products from BuildWithAV are coming soon. See the live AI demos in the meantime.">
 <meta property="og:url" content="https://buildwithav.com/products">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://buildwithav.com/og-image.png">
 
 <!-- ── Twitter Card ── -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Products — AI Tools &amp; Templates | BuildWithAV">
-<meta name="twitter:description" content="AI-powered tools from BuildWithAV. Pre-Call Intel Tool, Resume vs JD Gap Analyzer, BRD Generator, Notion Workspace Pack and more.">
+<meta name="twitter:title" content="Products — Coming Soon | BuildWithAV">
+<meta name="twitter:description" content="Products from BuildWithAV are coming soon. See the live AI demos in the meantime.">
 <meta name="twitter:image" content="https://buildwithav.com/og-image.png">
 
 <style>
@@ -90,6 +90,13 @@
   .page-header h1 { font-size: clamp(32px,4.5vw,52px); font-weight: 800; line-height: 1.15; letter-spacing: -0.4px; margin-bottom: 14px; }
   .page-header .sub { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.8; }
 
+  /* ── COMING SOON ── */
+  .coming-soon { max-width: 800px; margin: 0 auto; padding: 160px 40px 120px; text-align: center; }
+  .coming-soon h1 { font-size: clamp(32px,4.5vw,52px); font-weight: 800; line-height: 1.15; letter-spacing: -0.4px; margin-bottom: 18px; }
+  .coming-soon .sub { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin: 0 auto 32px; }
+  .coming-soon .cs-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .coming-soon .cs-actions .btn { padding: 12px 28px; font-size: 14px; }
+
   /* ── PRODUCTS GRID ── */
   .products-section { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
   .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -145,6 +152,8 @@
     .nav-hamburger { display: flex; }
     .mobile-menu { display: block; }
     .page-header { padding: 100px 20px 48px; }
+    .coming-soon { padding: 120px 20px 80px; }
+    .coming-soon h1 { font-size: 28px; }
     .page-header h1 { font-size: 28px; }
     .products-section { padding: 0 20px 60px; }
     .products-grid { grid-template-columns: 1fr; }
@@ -188,74 +197,14 @@
 
 <main>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
+  <!-- COMING SOON -->
+  <div class="coming-soon">
     <div class="section-tag green reveal">Products</div>
-    <h1 class="reveal delay-1">The BuildWithAV tool suite</h1>
-    <p class="sub reveal delay-2">Practical AI tools born from real consulting work — one live now, three in active development. Built to solve specific problems fast.</p>
-  </div>
-
-  <!-- PRODUCTS GRID -->
-  <div class="products-section">
-    <div class="products-grid">
-
-      <!-- Pre-Call Intel Tool -->
-      <div class="product-card live reveal">
-        <div class="product-card-header">
-          <div class="product-icon blue">🔍</div>
-          <div>
-            <div class="product-name">Pre-Call Intel Tool</div>
-            <div class="product-status blue">Available now · $9</div>
-          </div>
-        </div>
-        <p class="product-desc">Enter a company name. Get a full intelligence brief in 30 seconds — company background, pain points, talking points, and a personalized opener. Built on Claude API.</p>
-        <a href="https://abhishekvinod1.gumroad.com/l/precallintel" target="_blank" rel="noopener" class="btn btn-outline" style="width:fit-content;font-size:12px">Get access →</a>
-      </div>
-
-      <!-- Resume vs JD Gap Analyzer -->
-      <div class="product-card reveal delay-1">
-        <div class="product-card-header">
-          <div class="product-icon coral">🎯</div>
-          <div>
-            <a href="/resume-analyzer" style="color:inherit;text-decoration:none;">
-              <div class="product-name">Resume vs JD Gap Analyzer</div>
-            </a>
-            <div class="product-status coral">Demo live · Full version coming soon</div>
-          </div>
-        </div>
-        <p class="product-desc">Score your resume against any job description in seconds — match score, matching skills, missing skills, and AI-generated recommendations to close the gap. Try the free demo now, or get the full source code to deploy under your own name with a free Groq API key.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://huggingface.co/spaces/BuildWithAV/resume-analyzer" target="_blank" rel="noopener" class="btn btn-outline" style="width:fit-content;font-size:12px">Try the demo →</a>
-          <a href="mailto:hello@buildwithav.com?subject=Resume vs JD Gap Analyzer Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Notify me when available →</a>
-        </div>
-      </div>
-
-      <!-- Notion Workspace Pack -->
-      <div class="product-card reveal">
-        <div class="product-card-header">
-          <div class="product-icon gold">📦</div>
-          <div>
-            <div class="product-name">Notion Workspace Pack</div>
-            <div class="product-status gold">Building now · $19–$99</div>
-          </div>
-        </div>
-        <p class="product-desc">Three ready-to-use Notion workspace templates for freelancers and consultants — Starter ($19), Pro ($39), Elite ($59). Plus a Custom AI tier ($99) that builds a personalised workspace inside your Notion account using your real clients, projects, and goals.</p>
-        <a href="mailto:hello@buildwithav.com?subject=Notion Workspace Pack Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
-      </div>
-
-      <!-- BRD Generator -->
-      <div class="product-card reveal delay-1">
-        <div class="product-card-header">
-          <div class="product-icon purple">📄</div>
-          <div>
-            <div class="product-name">BRD Generator</div>
-            <div class="product-status purple">Building now · Free trial – $99</div>
-          </div>
-        </div>
-        <p class="product-desc">Describe your project in plain English. A multi-agent AI pipeline interviews you, researches your domain, and produces a professional Business Requirements Document — in consulting or agile style. For BAs, PMs, and consultants.</p>
-        <a href="mailto:hello@buildwithav.com?subject=BRD Generator Waitlist" class="btn btn-outline" style="width:fit-content;font-size:12px">Join waitlist →</a>
-      </div>
-
+    <h1 class="reveal delay-1">Products — Coming Soon</h1>
+    <p class="sub reveal delay-2">I'm heads-down building and shipping projects right now — you can see the live work on the Demos page. Product tools will be listed here as they're ready.</p>
+    <div class="cs-actions reveal delay-2">
+      <a href="https://buildwithav.com/demos" class="btn btn-primary">See Live Demos →</a>
+      <a href="https://calendly.com/v-abhi04/30min" target="_blank" rel="noopener" class="btn btn-outline">Book a call instead →</a>
     </div>
   </div>
 
